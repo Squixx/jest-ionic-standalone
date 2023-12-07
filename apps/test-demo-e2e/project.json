@@ -1,0 +1,33 @@
+{
+  "name": "test-demo-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/test-demo-e2e/src",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/test-demo-e2e/cypress.config.ts",
+        "testingType": "e2e",
+        "devServerTarget": "test-demo:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "test-demo:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "test-demo:serve-static"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/test-demo-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["test-demo"]
+}
