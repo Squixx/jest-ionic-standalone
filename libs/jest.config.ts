@@ -13,7 +13,10 @@ export default {
       },
     ],
   },
-  transformIgnorePatterns: ['node_modules/(?!.*\\.mjs$|(@ionic/angular|@ionic/core|ionicons|@stencil/core|@angular/*)/|\\.pnpm/?!.*\\.mjs$|(@ionic/angular|@ionic/core|ionicons|@stencil/core|@angular/*)/)'],
+  transformIgnorePatterns: [
+    '<rootDir>/node_modules/.pnpm/(?!(@ionic/angular|@ionic/core|ionicons|@stencil/core|@angular/*)@)',
+  ],
+  // transformIgnorePatterns: ['node_modules/(?!.*\\.mjs$|(@ionic/angular|@ionic/core|ionicons|@stencil/core|@angular/*)/|\\.pnpm/?!.*\\.mjs$|(@ionic/angular|@ionic/core|ionicons|@stencil/core|@angular/*)/)'],
   snapshotSerializers: [
     'jest-preset-angular/build/serializers/no-ng-attributes',
     'jest-preset-angular/build/serializers/ng-snapshot',
